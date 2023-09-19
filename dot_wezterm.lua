@@ -25,7 +25,7 @@ config.window_background_opacity    = 0
 config.macos_window_background_blur = 20
 config.window_padding               = {
     left = 8,
-    right = 15,
+    right = 20,
     top = 8,
     bottom = 8,
 }
