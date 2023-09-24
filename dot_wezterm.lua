@@ -14,16 +14,16 @@ end
 
 -- This is where you actually apply your config choices
 
-config.enable_scroll_bar            = true
-config.default_prog                 = { "C:/Program Files/nu/bin/nu.exe", "-l" }
-config.use_fancy_tab_bar            = false
-config.hide_tab_bar_if_only_one_tab = true
-config.tab_bar_at_bottom            = false
--- config.window_decorations           = "INTEGRATED_BUTTONS|RESIZE"
-config.window_background_opacity    = 0
+config.enable_scroll_bar  = true
+config.default_prog       = { "C:/Program Files/nu/bin/nu.exe", "-l" }
+-- config.use_fancy_tab_bar            = false
+-- config.hide_tab_bar_if_only_one_tab = true
+config.tab_bar_at_bottom  = false
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+-- config.window_background_opacity    = 0
 -- config.text_background_opacity      = 0
-config.macos_window_background_blur = 20
-config.window_padding               = {
+-- config.macos_window_background_blur = 20
+config.window_padding     = {
     left = 8,
     right = 20,
     top = 8,
@@ -47,7 +47,7 @@ function win32_backdrop_for_appearance(appearance)
     end
 end
 
-config.win32_system_backdrop = win32_backdrop_for_appearance(get_appearance())
+-- config.win32_system_backdrop = win32_backdrop_for_appearance(get_appearance())
 
 function scheme_for_appearance(appearance)
     if appearance:find 'Dark' then
@@ -98,15 +98,15 @@ end
 function window_frame_for_appearance(appearance)
     if appearance:find 'Dark' then
         return {
-            active_titlebar_bg = 'rgba(0, 0, 0, 0)',
-            inactive_titlebar_bg = 'rgba(0, 0, 0, 0)',
-            font_size = 12.0,
+            active_titlebar_bg = '#000000',
+            inactive_titlebar_bg = '#000000',
+            font_size = 14.0,
         }
     else
         return {
-            active_titlebar_bg = 'rgba(200, 200, 200, 0)',
-            inactive_titlebar_bg = 'rgba(200, 200, 200, 0)',
-            font_size = 12.0,
+            active_titlebar_bg = '#dddddd',
+            inactive_titlebar_bg = '#dddddd',
+            font_size = 14.0,
         }
     end
 end
@@ -136,42 +136,42 @@ end
 function tab_colors_for_appearance(appearance)
     if appearance:find 'Dark' then
         return {
-            space_color = 'rgba(0, 0, 0, 0)',
-            edge_background = 'rgba(0, 0, 0, 0)',
+            space_color = '#000000',
+            edge_background = '#000000',
             active_tab = {
-                bg_color = 'rgba(64, 64, 64, 1)',
+                bg_color = '#101216',
                 fg_color = '#ffffff',
-                edge_color = 'rgba(64, 64, 64, 1)',
+                edge_color = '#101216',
             },
             inactive_tab = {
-                bg_color = 'rgba(0, 0, 0, 0)',
+                bg_color = '#000000',
                 fg_color = '#bbbbbb',
-                edge_color = 'rgba(0, 0, 0, 1)',
+                edge_color = '#000000',
             },
             inactive_tab_hover = {
-                bg_color = 'rgba(32, 32, 32, 1)',
+                bg_color = '#000000',
                 fg_color = '#dddddd',
-                edge_color = 'rgba(32, 32, 32, 0)',
+                edge_color = '#000000',
             },
         }
     else
         return {
-            space_color = 'rgba(255, 255, 255, 0)',
-            edge_background = 'rgba(255, 255, 255, 0)',
+            space_color = '#dddddd',
+            edge_background = '#dddddd',
             active_tab = {
-                bg_color = 'rgba(255, 255, 255, 1)',
+                bg_color = '#ffffff',
                 fg_color = '#000000',
-                edge_color = 'rgba(255, 255, 255, 0)',
+                edge_color = '#ffffff',
             },
             inactive_tab = {
-                bg_color = 'rgba(200, 200, 200, 0)',
+                bg_color = '#dddddd',
                 fg_color = '#444444',
-                edge_color = 'rgba(255, 255, 255, 1)',
+                edge_color = '#dddddd',
             },
             inactive_tab_hover = {
-                bg_color = 'rgba(220, 220, 220, 1)',
+                bg_color = '#eeeeee',
                 fg_color = '#222222',
-                edge_color = 'rgba(220, 220, 220, 0)',
+                edge_color = '#eeeeee',
             },
         }
     end
@@ -204,21 +204,21 @@ wezterm.on(
 
         -- ensure that the titles fit in the available space,
         -- and that we have room for the edges.
-        title = wezterm.truncate_right(title, max_width - 2)
+        title = wezterm.truncate_right(title, max_width)
 
         return {
-            { Background = { Color = space_color } },
-            { Foreground = { Color = space_color } },
-            { Text = ' ' },
-            { Background = { Color = edge_background } },
-            { Foreground = { Color = edge_foreground } },
-            { Text = SOLID_LEFT_HALF_PIE },
+            -- { Background = { Color = space_color } },
+            -- { Foreground = { Color = space_color } },
+            -- { Text = ' ' },
+            -- { Background = { Color = edge_background } },
+            -- { Foreground = { Color = edge_foreground } },
+            -- { Text = SOLID_LEFT_HALF_PIE },
             { Background = { Color = background } },
             { Foreground = { Color = foreground } },
             { Text = title },
-            { Background = { Color = edge_background } },
-            { Foreground = { Color = edge_foreground } },
-            { Text = SOLID_RIGHT_HALF_PIE },
+            -- { Background = { Color = edge_background } },
+            -- { Foreground = { Color = edge_foreground } },
+            -- { Text = SOLID_RIGHT_HALF_PIE },
         }
     end
 )
