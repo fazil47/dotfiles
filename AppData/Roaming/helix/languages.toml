@@ -1,0 +1,17 @@
+[[language]]
+name = "python"
+scope = "source.python"
+language-servers = ["ruff"]
+auto-format = true
+
+[[language]]
+name = "rust"
+auto-format = true
+
+[language-server.ruff]
+command = "ruff-lsp"
+config = { settings = { run = "onSave" } }
+
+[language-server.emmet-language-server]
+args = ["--stdio"]
+command = "emmet-language-server"
