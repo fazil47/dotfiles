@@ -16,16 +16,16 @@ end
 
 config.enable_scroll_bar  = true
 config.default_prog       = { "C:/Program Files/nu/bin/nu.exe", "-l" }
--- config.use_fancy_tab_bar            = false
+config.use_fancy_tab_bar            = true
 -- config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom  = false
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
--- config.window_background_opacity    = 0
--- config.text_background_opacity      = 0
+config.window_decorations = "RESIZE"
+config.window_background_opacity    = 0.4
+-- config.text_background_opacity      = 0.4
 -- config.macos_window_background_blur = 20
 config.window_padding     = {
     left = 8,
-    right = 20,
+    right = 16,
     top = 8,
     bottom = 8,
 }
@@ -47,7 +47,7 @@ function win32_backdrop_for_appearance(appearance)
     end
 end
 
--- config.win32_system_backdrop = win32_backdrop_for_appearance(get_appearance())
+config.win32_system_backdrop = win32_backdrop_for_appearance(get_appearance())
 
 function scheme_for_appearance(appearance)
     if appearance:find 'Dark' then
@@ -60,16 +60,16 @@ end
 function colors_for_appearance(appearance)
     if appearance:find 'Dark' then
         return {
-            scrollbar_thumb = 'rgba(64, 64, 64, 0.4)',
+            scrollbar_thumb = 'rgba(25, 29, 35, 0.2)',
             tab_bar         = {
                 background        = 'rgba(0, 0, 0, 0)',
                 new_tab           = {
                     bg_color = 'rgba(0, 0, 0, 0)',
-                    fg_color = '#ffffff',
+                    fg_color = 'rgba(255, 255, 255, 1)',
                 },
                 new_tab_hover     = {
                     bg_color = 'rgba(128, 128, 128, 0.2)',
-                    fg_color = '#ffffff',
+                    fg_color = 'rgba(255, 255, 255, 1)',
                     italic   = true,
                 },
                 inactive_tab_edge = 'rgba(0, 0, 0, 0)',
@@ -77,16 +77,16 @@ function colors_for_appearance(appearance)
         }
     else
         return {
-            scrollbar_thumb = 'rgba(128, 128, 128, 0.4)',
+            scrollbar_thumb = 'rgba(164, 164, 164, 0.2)',
             tab_bar         = {
                 background        = 'rgba(255, 255, 255, 0)',
                 new_tab           = {
                     bg_color = 'rgba(255, 255, 255, 0)',
-                    fg_color = '#000000',
+                    fg_color = 'rgba(0, 0, 0, 1)',
                 },
                 new_tab_hover     = {
                     bg_color = 'rgba(200, 200, 200, 0.2)',
-                    fg_color = '#000000',
+                    fg_color = 'rgba(0, 0, 0, 1)',
                     italic   = true,
                 },
                 inactive_tab_edge = 'rgba(0, 0, 0, 0)',
@@ -98,14 +98,14 @@ end
 function window_frame_for_appearance(appearance)
     if appearance:find 'Dark' then
         return {
-            active_titlebar_bg = '#000000',
-            inactive_titlebar_bg = '#000000',
+            active_titlebar_bg = 'rgba(0, 0, 0, 0)',
+            inactive_titlebar_bg = 'rgba(0, 0, 0, 0)',
             font_size = 14.0,
         }
     else
         return {
-            active_titlebar_bg = '#dddddd',
-            inactive_titlebar_bg = '#dddddd',
+            active_titlebar_bg = 'rgba(221, 221, 221, 0)',
+            inactive_titlebar_bg = 'rgba(221, 221, 221, 0)',
             font_size = 14.0,
         }
     end
@@ -136,42 +136,42 @@ end
 function tab_colors_for_appearance(appearance)
     if appearance:find 'Dark' then
         return {
-            space_color = '#000000',
-            edge_background = '#000000',
+            space_color = 'rgba(0, 0, 0, 0)',
+            edge_background = 'rgba(0, 0, 0, 0)',
             active_tab = {
-                bg_color = '#101216',
-                fg_color = '#ffffff',
-                edge_color = '#101216',
+                bg_color = 'rgba(16, 18, 22, 0.4)',
+                fg_color = 'rgba(255, 255, 255, 1)',
+                edge_color = 'rgba(16, 18, 22, 0.4)',
             },
             inactive_tab = {
-                bg_color = '#000000',
-                fg_color = '#bbbbbb',
-                edge_color = '#000000',
+                bg_color = 'rgba(0, 0, 0, 0)',
+                fg_color = 'rgba(192, 192, 192, 1)',
+                edge_color = 'rgba(0, 0, 0, 0)',
             },
             inactive_tab_hover = {
-                bg_color = '#000000',
-                fg_color = '#dddddd',
-                edge_color = '#000000',
+                bg_color = 'rgba(0, 0, 0, 0)',
+                fg_color = 'rgba(221, 221, 221, 1)',
+                edge_color = 'rgba(0, 0, 0, 0)',
             },
         }
     else
         return {
-            space_color = '#dddddd',
-            edge_background = '#dddddd',
+            space_color = 'rgba(221, 221, 221, 0)',
+            edge_background = 'rgba(221, 221, 221, 0)',
             active_tab = {
-                bg_color = '#ffffff',
-                fg_color = '#000000',
-                edge_color = '#ffffff',
+                bg_color = 'rgba(255, 255, 255, 0.4)',
+                fg_color = 'rgba(0, 0, 0, 1)',
+                edge_color = 'rgba(255, 255, 255, 0.4)',
             },
             inactive_tab = {
-                bg_color = '#dddddd',
-                fg_color = '#444444',
-                edge_color = '#dddddd',
+                bg_color = 'rgba(221, 221, 221, 0)',
+                fg_color = 'rgba(68, 68, 68, 1)',
+                edge_color = 'rgba(221, 221, 221, 0)',
             },
             inactive_tab_hover = {
-                bg_color = '#eeeeee',
-                fg_color = '#222222',
-                edge_color = '#eeeeee',
+                bg_color = 'rgba(238, 238, 238, 0)',
+                fg_color = 'rgba(34, 34, 34, 1)',
+                edge_color = 'rgba(238, 238, 238, 0)',
             },
         }
     end
