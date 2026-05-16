@@ -1,0 +1,14 @@
+# [theme]
+# dark = "catppuccin_frappe"
+# light = "catppuccin_latte"
+# theme = "catppuccin_latte"
+theme = "catppuccin_latte"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.lsp]
+display-inlay-hints = true
+
+[keys.normal]
+space = { c = { r = ":config-reload" } }
