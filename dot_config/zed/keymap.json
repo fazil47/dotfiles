@@ -39,4 +39,16 @@
       "escape": "buffer_search::Dismiss",
     },
   },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "bindings": {
+      "g o": "editor::ToggleAllDiffHunks"
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "bindings": {
+      "g q": "vim::Rewrap"
+    }
+  }
 ]
